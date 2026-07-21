@@ -9,6 +9,7 @@ import {
 } from "../gameConfig.js";
 
 import { useRecord } from "./useRecord.js";
+import { useLivelloSalvato } from "./useLivelloSalvato.js";
 
 export const STATI = {          
     IDLE: "idle",               //schermata iniziale
@@ -24,6 +25,7 @@ export function useGameLogic() {
     const [livello, setLivello] = useState(1);
     const [vite, setVite] = useState(MAX_LIVES);
     const [record, aggiornaRecord] = useRecord();
+    const [livelloSalvato, salvaLivello, cancellaSalvataggio] = useLivelloSalvato();
 
     const [pattern, setPattern] = useState([]);                     //celle da indovinare
     const [celleGiuste, setCelleGiuste] = useState([]);             //celle indovinate
@@ -46,6 +48,7 @@ export function useGameLogic() {
         setCelleGiuste([]);
         setCellaSbagliata(null);
         setStato(STATI.SHOWING);        //mostro il pattern
+        salvaLivello(nuovoLivello);     //salvo il progresso ogni volta che parte un livello
 
         //dopo un po' di tempo, spengo il pattern e do il via ai click
         timerRef.current = setTimeout(() => {
@@ -53,10 +56,10 @@ export function useGameLogic() {
         }, getShowTime(nuovoLivello));
     }
     
-    function iniziaPartita() {
-        setLivello(1);
+    function iniziaPartita(livelloDiPartenza = 1) {
+        setLivello(livelloDiPartenza);
         setVite(MAX_LIVES);
-        avviaLivello(1);
+        avviaLivello(livelloDiPartenza);
     }
 
     function tornaAllaHome() {
@@ -67,8 +70,16 @@ export function useGameLogic() {
         setStato(STATI.IDLE);
         setLivello(1);
         setVite(MAX_LIVES);
+        cancellaSalvataggio();
     }
 
+    function salvaEEsci() {
+        if (timerRef.current) {
+            clearTimeout(timerRef.current);
+        }
+        setStato(STATI.IDLE);
+        setVite(MAX_LIVES);
+    }
 
     function clickCella(indice) {
         if (stato !== STATI.GUESSING) {     //contano solo i click durante lo stato "guessing"
@@ -119,6 +130,9 @@ export function useGameLogic() {
         livello,
         vite,
         record,
+        livelloSalvato,
+        cancellaSalvataggio,
+        salvaEEsci,
         pattern,
         celleGiuste,
         celleSbagliata,

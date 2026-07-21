@@ -8,7 +8,7 @@ const MESSAGGI = {
   idle: "",
 };
 
-function HUD({ stato, livello, vite, record, dimensioneGriglia }) {
+function HUD({ stato, livello, vite, record, dimensioneGriglia, alClicEsci }) {
   return (
     <div className="hud">
       <div className="hud-riga">
@@ -26,6 +26,10 @@ function HUD({ stato, livello, vite, record, dimensioneGriglia }) {
           </span>
         ))}
       </div>
+
+      <button className="bottone bottone-secondario" onClick={() => alClicEsci()}>
+        Salva ed esci
+      </button>
 
       <p className="hud-messaggio">{MESSAGGI[stato]}</p>
     </div>

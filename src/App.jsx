@@ -16,7 +16,11 @@
     return (
       <div className="app">
         {!partitaIniziata ? (
-          <StartScreen alClicStart={gioco.iniziaPartita} />
+          <StartScreen
+            alClicStart={gioco.iniziaPartita}
+            livelloSalvato={gioco.livelloSalvato}
+            cancellaSalvataggio={gioco.cancellaSalvataggio}
+          />
         ) : (
           <>
             <HUD
@@ -25,6 +29,7 @@
               vite={gioco.vite}
               record={gioco.record}
               dimensioneGriglia={dimensioneGriglia}
+              alClicEsci={gioco.salvaEEsci}
             />
 
             <GameBoard
