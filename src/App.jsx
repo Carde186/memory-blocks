@@ -23,6 +23,7 @@
               stato={gioco.stato}
               livello={gioco.livello}
               vite={gioco.vite}
+              record={gioco.record}
               dimensioneGriglia={dimensioneGriglia}
             />
 

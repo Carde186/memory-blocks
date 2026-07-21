@@ -8,6 +8,8 @@ import {
     generatePattern,
 } from "../gameConfig.js";
 
+import { useRecord } from "./useRecord.js";
+
 export const STATI = {          
     IDLE: "idle",               //schermata iniziale
     SHOWING: "showing",         //si accendono le celle
@@ -21,6 +23,7 @@ export function useGameLogic() {
     const [stato, setStato] = useState(STATI.IDLE);
     const [livello, setLivello] = useState(1);
     const [vite, setVite] = useState(MAX_LIVES);
+    const [record, aggiornaRecord] = useRecord();
 
     const [pattern, setPattern] = useState([]);                     //celle da indovinare
     const [celleGiuste, setCelleGiuste] = useState([]);             //celle indovinate
@@ -84,6 +87,7 @@ export function useGameLogic() {
             setCelleGiuste(nuoveGiuste);
 
             if (nuoveGiuste.length === pattern.length) {        //controllo se ho completato il pattern
+                aggiornaRecord(livello);
                 setStato(STATI.SUCCESS);
 
                 timerRef.current = setTimeout(() => {
@@ -114,6 +118,7 @@ export function useGameLogic() {
         stato,
         livello,
         vite,
+        record,
         pattern,
         celleGiuste,
         celleSbagliata,

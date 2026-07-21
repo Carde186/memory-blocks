@@ -8,12 +8,15 @@ const MESSAGGI = {
   idle: "",
 };
 
-function HUD({ stato, livello, vite, dimensioneGriglia }) {
+function HUD({ stato, livello, vite, record, dimensioneGriglia }) {
   return (
     <div className="hud">
       <div className="hud-riga">
         <span>Livello: {livello}</span>
         <span>Griglia: {dimensioneGriglia}x{dimensioneGriglia}</span>
+      </div>
+      <div className="hud-riga">
+        <span>Record: {record > 0 ? record : "-"}</span>
       </div>
 
       <div className="vite">
