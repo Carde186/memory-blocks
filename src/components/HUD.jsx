@@ -11,20 +11,20 @@ const MESSAGGI = {
 function HUD({ stato, livello, vite, dimensioneGriglia }) {
   return (
     <div className="hud">
-      <div className="hud__riga">
+      <div className="hud-riga">
         <span>Livello: {livello}</span>
         <span>Griglia: {dimensioneGriglia}x{dimensioneGriglia}</span>
       </div>
 
       <div className="vite">
         {Array.from({ length: MAX_LIVES }, (_, i) => (
-          <span key={i} className={i < vite ? "cuore cuore--pieno" : "cuore cuore--vuoto"}>
+          <span key={i} className={i < vite ? "cuore cuore-pieno" : "cuore cuore-vuoto"}>
             ❤
           </span>
         ))}
       </div>
 
-      <p className="hud__messaggio">{MESSAGGI[stato]}</p>
+      <p className="hud-messaggio">{MESSAGGI[stato]}</p>
     </div>
   );
 }

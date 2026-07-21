@@ -93,7 +93,7 @@ export function useGameLogic() {
                 }, 900); //breve pausa per mostrare il flash di successo
             }
         } else {
-            //cella sbagliata = flash rosso e -1 vita
+            //cella sbagliata = cella rossa e -1 vita
             setCellaSbagliata(indice);
             const viteRimaste = vite - 1;
             setVite(viteRimaste);

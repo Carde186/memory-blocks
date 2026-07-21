@@ -21,7 +21,7 @@ export function getPatternCount(level) {
     const size = getGridSize(level);
     const total = size * size;
 
-    let count = 3 + Math.floor(level / 2);      //parte da 3 e aumenta di 1 ogni 2 livelli
+    let count = 3 + Math.floor(level / 3);      //parte da 3 e aumenta di 1 ogni 2 livelli
 
     const max = Math.floor(total * 0.55);
     if (count > max){
@@ -32,8 +32,8 @@ export function getPatternCount(level) {
 }
 
 export function getShowTime(level) {        //mostra il tempo di visualizzazione del pattern
-    let time = 2600 - (level - 1) * 180;    //ogni livello diminuisce il tempo fino ad un minimo
-    if (time < 900) time = 900;
+    let time = 2600 - (level - 1) * 200;    //ogni livello diminuisce il tempo fino ad un minimo
+    if (time < 1400) time = 1400;
 
     return time;
 }
