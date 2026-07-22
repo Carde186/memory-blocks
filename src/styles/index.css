@@ -1,3 +1,23 @@
+/* ===== Variabili colore per i due temi ===== */
+
+body[data-tema="scuro"] {
+  --sfondo: #0b0d14;
+  --testo: #eef1f7;
+  --pannello: #171b28;
+  --bordo: #232838;
+  --testo-attenuato: #8a91a6;
+}
+
+body[data-tema="chiaro"] {
+  --sfondo: #f4f5f9;
+  --testo: #14171f;
+  --pannello: #e4e4e4;
+  --bordo: #a4a4a4;
+  --testo-attenuato: #5a6072;
+}
+
+
+
 /* ===== Reset ===== */
 * {
   box-sizing: border-box;
@@ -18,9 +38,10 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #0b0d14;
-  color: #eef1f7;
   font-family: system-ui, sans-serif;
+  background: var(--sfondo);
+  color: var(--testo);
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 .app {
@@ -31,6 +52,9 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 20px;
+  background: var(--sfondo);
+  color: var(--testo);
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 
@@ -46,6 +70,7 @@ body {
 .schermata-iniziale h1 {
   font-size: 2rem;
   margin: 0;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 
@@ -65,8 +90,8 @@ body {
 }
 
 .bottone-secondario {
-  background: #232838;
-  color: #eef1f7;
+  background: var(--pannello);
+  color: var(--testo);
 }
 
 
@@ -77,7 +102,7 @@ body {
   flex-direction: column;
   gap: 8px;
   align-items: center;
-  font-size: 20px_;
+  font-size: 20px;
 }
 
 .hud-riga {
@@ -85,7 +110,7 @@ body {
   justify-content: space-between;
   width: 100%;
   font-size: 20px;
-  color: #8a91a6;
+  color: var(--testo);
 }
 
 .vite {
@@ -99,12 +124,12 @@ body {
 }
 
 .cuore-vuoto {
-  color: #333846;
+  color: var(--pannello);
 }
 
 .hud-messaggio {
   min-height: 1.2em;
-  color: #8a91a6;
+  color: var(--testo);
 }
 
 
@@ -117,11 +142,12 @@ body {
 }
 
 .cella {
-  border: 1px solid #232838;
+  border: 1px solid var(--bordo);
   border-radius: 8px;
-  background: #171b28;
+  background: var(--pannello);
   width: 70px;
   height: 70px;
+  transition: background 0.2s ease, border-color 0.2s ease;
 }
 
 .cella-verde {
@@ -146,7 +172,7 @@ body {
 }
 
 .modale {
-  background: #171b28;
+  background: var(--pannello);
   padding: 24px;
   border-radius: 14px;
   text-align: center;
@@ -154,4 +180,18 @@ body {
   flex-direction: column;
   gap: 12px;
   min-width: 220px;
+}
+
+
+/* Bottone per il tema */
+.bottone-tema {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  background: var(--pannello);
+  color: var(--testo);
+  border: 1px solid var(--bordo);
+  font-size: 0.9rem;
 }

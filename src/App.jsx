@@ -6,15 +6,21 @@
   import GameOverModal from "./components/GameOverModal.jsx";
 
   import { getGridSize } from "./gameConfig.js";
+  import { useTheme } from "./hooks/useTheme.jsx";
 
   function App() {
     const gioco = useGameLogic();
+    const { tema, cambiaTema } = useTheme();
 
     const dimensioneGriglia = getGridSize(gioco.livello);
     const partitaIniziata = gioco.stato !== STATI.IDLE;
 
     return (
       <div className="app">
+        <button className="bottone-tema" onClick={() => cambiaTema()}>
+          {tema === "scuro" ? "☀️ Chiaro" : "🌙 Scuro"}
+        </button>
+
         {!partitaIniziata ? (
           <StartScreen
             alClicStart={gioco.iniziaPartita}
