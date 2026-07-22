@@ -1,81 +1,14 @@
-import { useGameLogic, STATI } from "./hooks/useGameLogic.js";
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Statistiche from "./pages/Statistiche.jsx";
 
-import GameBoard from "./components/GameBoard.jsx";
-import HUD from "./components/HUD.jsx";
-import StartScreen from "./components/StartScreen.jsx";
-import GameOverModal from "./components/GameOverModal.jsx";
-
-import { getGridSize } from "./gameConfig.js";
-import { useTheme } from "./hooks/useTheme.jsx";
-
-import { useState } from "react";
-import { useColoreCelle } from "./hooks/useColoreCelle.js";
-import MenuImpostazioni from "./components/MenuImpostazioni.jsx";
-
-function App() {
-    const gioco = useGameLogic();
-    const { tema, cambiaTema } = useTheme();
-
-    const [coloreCelle, cambiaColoreCelle] = useColoreCelle();
-    const [menuAperto, setMenuAperto] = useState(false);
-
-    const dimensioneGriglia = getGridSize(gioco.livello);
-    const partitaIniziata = gioco.stato !== STATI.IDLE;
-
+function App(){
     return (
-        <div className="app">
-            <div className="barra-in-alto">
-                <button className="bottone-tema" onClick={() => cambiaTema()}>
-                    {tema === "scuro" ? "☀️ Chiaro" : "🌙 Scuro"}
-                </button>
+        <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/statistiche" element={<Statistiche />} />
+        </Routes>
 
-                <button className="bottone-tema" onClick={() => setMenuAperto(true)}> ⚙️ Colori </button>
-            </div>
-
-            {!partitaIniziata ? (
-                <StartScreen
-                    alClicStart={gioco.iniziaPartita}
-                    livelloSalvato={gioco.livelloSalvato}
-                    cancellaSalvataggio={gioco.cancellaSalvataggio}
-                />
-            ) : (
-                <>
-                    <HUD
-                        stato={gioco.stato}
-                        livello={gioco.livello}
-                        vite={gioco.vite}
-                        record={gioco.record}
-                        dimensioneGriglia={dimensioneGriglia}
-                        alClicEsci={gioco.salvaEEsci}
-                    />
-
-                    <GameBoard
-                        stato={gioco.stato}
-                        dimensioneGriglia={dimensioneGriglia}
-                        pattern={gioco.pattern}
-                        celleGiuste={gioco.celleGiuste}
-                        celleSbagliata={gioco.celleSbagliata}
-                        alClic={gioco.clickCella}
-                    />
-                </>
-            )}
-
-            {gioco.stato === STATI.GAMEOVER && (
-                <GameOverModal
-                    livello={gioco.livello}
-                    ricomincia={gioco.iniziaPartita}
-                    home={gioco.tornaAllaHome}
-                />
-            )}
-
-            {menuAperto && (
-                <MenuImpostazioni
-                    coloreAttuale={coloreCelle}
-                    alClicColore={cambiaColoreCelle}
-                    alClicChiudi={() => setMenuAperto(false)}
-                />
-            )}
-        </div>
     );
 }
 

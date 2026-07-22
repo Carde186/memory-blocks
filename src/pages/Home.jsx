@@ -12,6 +12,9 @@ import { useState } from "react";
 import { useColoreCelle } from "../hooks/useColoreCelle.js";
 import MenuImpostazioni from "../components/MenuImpostazioni.jsx";
 
+import { Link } from 'react-router-dom'
+
+
 function Home() {
     const gioco = useGameLogic();
     const { tema, cambiaTema } = useTheme();

@@ -10,6 +10,7 @@ import {
 
 import { useRecord } from "./useRecord.js";
 import { useLivelloSalvato } from "./useLivelloSalvato.js";
+import { useStoricoPartite } from "./useStoricoPartite.js";
 
 export const STATI = {
     IDLE: "idle",               //schermata iniziale
@@ -26,6 +27,7 @@ export function useGameLogic() {
     const [vite, setVite] = useState(MAX_LIVES);
     const [record, aggiornaRecord] = useRecord();
     const [livelloSalvato, salvaLivello, cancellaSalvataggio] = useLivelloSalvato();
+    const [storico, aggiungiPartita] = useStoricoPartite();
 
     const [pattern, setPattern] = useState([]);                     //celle da indovinare
     const [celleGiuste, setCelleGiuste] = useState([]);             //celle indovinate
@@ -118,6 +120,7 @@ export function useGameLogic() {
 
                 if (viteRimaste <= 0) {
                     setStato(STATI.GAMEOVER);
+                    aggiungiPartita(livello);       //salvo il livello raggiunto in questa partita
                 }
                 //se restano vite, il giocatore continua a provare sullo stesso pattern
             }, 400); //durata del flash rosso
@@ -133,6 +136,7 @@ export function useGameLogic() {
         livelloSalvato,
         cancellaSalvataggio,
         salvaEEsci,
+        storico,
         pattern,
         celleGiuste,
         celleSbagliata,
