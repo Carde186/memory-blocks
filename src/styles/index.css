@@ -16,7 +16,21 @@ body[data-tema="chiaro"] {
   --testo-attenuato: #5a6072;
 }
 
+body[data-colore-celle="verde"] {
+  --colore: #34f5a0;
+}
 
+body[data-colore-celle="blu"] {
+  --colore: #3b82f6;
+}
+
+body[data-colore-celle="viola"] {
+  --colore: #a855f7;
+}
+
+body[data-colore-celle="arancione"] {
+  --colore: #f97316;
+}
 
 /* ===== Reset ===== */
 * {
@@ -151,8 +165,8 @@ body {
 }
 
 .cella-verde {
-  background: #34f5a0;
-  border-color: #34f5a0;
+  background: var(--colore);
+  border-color: var(--colore);
 }
 
 .cella-rossa {
@@ -184,14 +198,56 @@ body {
 
 
 /* Bottone per il tema */
-.bottone-tema {
+.barra-in-alto {
   position: fixed;
   top: 16px;
   right: 16px;
+  display: flex;
+  gap: 10px;
+}
+
+
+.bottone-tema {
   padding: 8px 14px;
   border-radius: 8px;
   background: var(--pannello);
   color: var(--testo);
   border: 1px solid var(--bordo);
   font-size: 0.9rem;
+}
+
+
+
+/* Stili per le celle */
+.lista-colori {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.swatch {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: 3px solid transparent;
+}
+
+.swatch-verde {
+  background: #34f5a0;
+}
+
+.swatch-blu {
+  background: #3b82f6;
+}
+
+.swatch-viola {
+  background: #a855f7;
+}
+
+.swatch-arancione {
+  background: #f97316;
+}
+
+.swatch-selezionato {
+  border-color: var(--testo);
 }
