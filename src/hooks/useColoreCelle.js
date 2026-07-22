@@ -4,10 +4,10 @@ const KEY = "colore-celle";
 
 export const COLORI_DISPONIBILI = ["verde", "blu", "viola", "arancione"];
 
-export function useColoreCelle(){
+export function useColoreCelle() {
     const [colore, setColore] = useState(() => {
         const salvato = localStorage.getItem(KEY);
-        if(salvato !== null){
+        if (salvato !== null) {
             return JSON.parse(salvato);
         }
         return "verde";     //colore di default
@@ -17,7 +17,7 @@ export function useColoreCelle(){
         document.body.setAttribute("data-colore-celle", colore);
     }, [colore]);
 
-    function cambiaColore(nuovoColore){
+    function cambiaColore(nuovoColore) {
         setColore(nuovoColore);
         localStorage.setItem(KEY, JSON.stringify(nuovoColore));
     }

@@ -2,16 +2,16 @@ import { useState } from "react";
 
 const KEY = "livello-salvato";
 
-export function useLivelloSalvato(){
+export function useLivelloSalvato() {
     const [livelloSalvato, setLivelloSalvato] = useState(() => {
         const salvato = localStorage.getItem(KEY);
-        if(salvato !== null){
+        if (salvato !== null) {
             return JSON.parse(salvato);
         }
         return null;
     });
 
-    function salvaLivello(livello){
+    function salvaLivello(livello) {
         setLivelloSalvato(livello);
         localStorage.setItem(KEY, JSON.stringify(livello));
     }
@@ -21,5 +21,5 @@ export function useLivelloSalvato(){
         localStorage.removeItem(KEY);
     }
 
-    return [livelloSalvato, salvaLivello, cancellaSalvataggio];    
+    return [livelloSalvato, salvaLivello, cancellaSalvataggio];
 }

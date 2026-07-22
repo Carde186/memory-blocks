@@ -1,253 +1,253 @@
 /* ===== Variabili colore per i due temi ===== */
 
 body[data-tema="scuro"] {
-  --sfondo: #0b0d14;
-  --testo: #eef1f7;
-  --pannello: #171b28;
-  --bordo: #232838;
-  --testo-attenuato: #8a91a6;
+    --sfondo: #0b0d14;
+    --testo: #eef1f7;
+    --pannello: #171b28;
+    --bordo: #232838;
+    --testo-attenuato: #8a91a6;
 }
 
 body[data-tema="chiaro"] {
-  --sfondo: #f4f5f9;
-  --testo: #14171f;
-  --pannello: #e4e4e4;
-  --bordo: #a4a4a4;
-  --testo-attenuato: #5a6072;
+    --sfondo: #f4f5f9;
+    --testo: #14171f;
+    --pannello: #e4e4e4;
+    --bordo: #a4a4a4;
+    --testo-attenuato: #5a6072;
 }
 
 body[data-colore-celle="verde"] {
-  --colore: #34f5a0;
+    --colore: #34f5a0;
 }
 
 body[data-colore-celle="blu"] {
-  --colore: #3b82f6;
+    --colore: #3b82f6;
 }
 
 body[data-colore-celle="viola"] {
-  --colore: #a855f7;
+    --colore: #a855f7;
 }
 
 body[data-colore-celle="arancione"] {
-  --colore: #f97316;
+    --colore: #f97316;
 }
 
 /* ===== Reset ===== */
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 button {
-  font: inherit;
-  padding: 0;
-  border: none;
-  background: none;
-  color: inherit;
-  cursor: pointer;
+    font: inherit;
+    padding: 0;
+    border: none;
+    background: none;
+    color: inherit;
+    cursor: pointer;
 }
 
 body {
-  margin: 0;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: system-ui, sans-serif;
-  background: var(--sfondo);
-  color: var(--testo);
-  transition: background 0.3s ease, color 0.3s ease;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: system-ui, sans-serif;
+    background: var(--sfondo);
+    color: var(--testo);
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
 .app {
-  width: 100%;
-  max-width: 1000px;
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  background: var(--sfondo);
-  color: var(--testo);
-  transition: background 0.3s ease, color 0.3s ease;
+    width: 100%;
+    max-width: 1000px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    background: var(--sfondo);
+    color: var(--testo);
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
 
 /* Schermata iniziale */
 .schermata-iniziale {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
 }
 
 .schermata-iniziale h1 {
-  font-size: 2rem;
-  margin: 0;
-  transition: background 0.3s ease, color 0.3s ease;
+    font-size: 2rem;
+    margin: 0;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
 
 /* Bottoni */
 .bottone {
-  padding: 12px 24px;
-  border: none;
-  border-radius: 10px;
-  font-size: 1rem;
-  cursor: pointer;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
 }
 
 .bottone-primario {
-  background: #34f5a0;
-  color: #04120b;
-  font-weight: bold;
+    background: #34f5a0;
+    color: #04120b;
+    font-weight: bold;
 }
 
 .bottone-secondario {
-  background: var(--pannello);
-  color: var(--testo);
+    background: var(--pannello);
+    color: var(--testo);
 }
 
 
 /* HUD */
 .hud {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  align-items: center;
-  font-size: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+    font-size: 20px;
 }
 
 .hud-riga {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  font-size: 20px;
-  color: var(--testo);
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 20px;
+    color: var(--testo);
 }
 
 .vite {
-  display: flex;
-  gap: 6px;
-  font-size: 25px;
+    display: flex;
+    gap: 6px;
+    font-size: 25px;
 }
 
 .cuore-pieno {
-  color: #ff4d5e;
+    color: #ff4d5e;
 }
 
 .cuore-vuoto {
-  color: var(--pannello);
+    color: var(--pannello);
 }
 
 .hud-messaggio {
-  min-height: 1.2em;
-  color: var(--testo);
+    min-height: 1.2em;
+    color: var(--testo);
 }
 
 
 /* Griglia e celle */
 .griglia {
-  display: grid;
-  gap: 8px;
-  width: 100%;
-  aspect-ratio: 1 / 1;
+    display: grid;
+    gap: 8px;
+    width: 100%;
+    aspect-ratio: 1 / 1;
 }
 
 .cella {
-  border: 1px solid var(--bordo);
-  border-radius: 8px;
-  background: var(--pannello);
-  width: 70px;
-  height: 70px;
-  transition: background 0.2s ease, border-color 0.2s ease;
+    border: 1px solid var(--bordo);
+    border-radius: 8px;
+    background: var(--pannello);
+    width: 70px;
+    height: 70px;
+    transition: background 0.2s ease, border-color 0.2s ease;
 }
 
 .cella-verde {
-  background: var(--colore);
-  border-color: var(--colore);
+    background: var(--colore);
+    border-color: var(--colore);
 }
 
 .cella-rossa {
-  background: #ff4d5e;
-  border-color: #ff4d5e;
+    background: #ff4d5e;
+    border-color: #ff4d5e;
 }
 
 
 /* Game over overlay */
 .overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.7);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .modale {
-  background: var(--pannello);
-  padding: 24px;
-  border-radius: 14px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  min-width: 220px;
+    background: var(--pannello);
+    padding: 24px;
+    border-radius: 14px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-width: 220px;
 }
 
 
 /* Bottone per il tema */
 .barra-in-alto {
-  position: fixed;
-  top: 16px;
-  right: 16px;
-  display: flex;
-  gap: 10px;
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    display: flex;
+    gap: 10px;
 }
 
 
 .bottone-tema {
-  padding: 8px 14px;
-  border-radius: 8px;
-  background: var(--pannello);
-  color: var(--testo);
-  border: 1px solid var(--bordo);
-  font-size: 0.9rem;
+    padding: 8px 14px;
+    border-radius: 8px;
+    background: var(--pannello);
+    color: var(--testo);
+    border: 1px solid var(--bordo);
+    font-size: 0.9rem;
 }
 
 
 
 /* Stili per le celle */
 .lista-colori {
-  display: flex;
-  gap: 12px;
-  justify-content: center;
+    display: flex;
+    gap: 12px;
+    justify-content: center;
 }
 
 .swatch {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  border: 3px solid transparent;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    border: 3px solid transparent;
 }
 
 .swatch-verde {
-  background: #34f5a0;
+    background: #34f5a0;
 }
 
 .swatch-blu {
-  background: #3b82f6;
+    background: #3b82f6;
 }
 
 .swatch-viola {
-  background: #a855f7;
+    background: #a855f7;
 }
 
 .swatch-arancione {
-  background: #f97316;
+    background: #f97316;
 }
 
 .swatch-selezionato {
-  border-color: var(--testo);
+    border-color: var(--testo);
 }

@@ -11,14 +11,14 @@ import {
 import { useRecord } from "./useRecord.js";
 import { useLivelloSalvato } from "./useLivelloSalvato.js";
 
-export const STATI = {          
+export const STATI = {
     IDLE: "idle",               //schermata iniziale
     SHOWING: "showing",         //si accendono le celle
     GUESSING: "guessing",       //l'utente gioca
     SUCCESS: "success",         //livello superato
     GAMEOVER: "gameover",       //vite finite
 };
-  
+
 
 export function useGameLogic() {
     const [stato, setStato] = useState(STATI.IDLE);
@@ -55,7 +55,7 @@ export function useGameLogic() {
             setStato(STATI.GUESSING);
         }, getShowTime(nuovoLivello));
     }
-    
+
     function iniziaPartita(livelloDiPartenza = 1) {
         setLivello(livelloDiPartenza);
         setVite(MAX_LIVES);
@@ -83,11 +83,11 @@ export function useGameLogic() {
 
     function clickCella(indice) {
         if (stato !== STATI.GUESSING) {     //contano solo i click durante lo stato "guessing"
-            return;         
-        }       
+            return;
+        }
 
         if (celleGiuste.includes(indice)) {     //ignoro il doppio click se ho già cliccato una cella "giusta"
-            return;         
+            return;
         }
 
 
@@ -122,7 +122,7 @@ export function useGameLogic() {
                 //se restano vite, il giocatore continua a provare sullo stesso pattern
             }, 400); //durata del flash rosso
         }
-      }
+    }
 
 
     return {

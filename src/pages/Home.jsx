@@ -1,18 +1,18 @@
-import { useGameLogic, STATI } from "./hooks/useGameLogic.js";
+import { useGameLogic, STATI } from "../hooks/useGameLogic.js";
 
-import GameBoard from "./components/GameBoard.jsx";
-import HUD from "./components/HUD.jsx";
-import StartScreen from "./components/StartScreen.jsx";
-import GameOverModal from "./components/GameOverModal.jsx";
+import GameBoard from "../components/GameBoard.jsx";
+import HUD from "../components/HUD.jsx";
+import StartScreen from "../components/StartScreen.jsx";
+import GameOverModal from "../components/GameOverModal.jsx";
 
-import { getGridSize } from "./gameConfig.js";
-import { useTheme } from "./hooks/useTheme.jsx";
+import { getGridSize } from "../gameConfig.js";
+import { useTheme } from "../hooks/useTheme.jsx";
 
 import { useState } from "react";
-import { useColoreCelle } from "./hooks/useColoreCelle.js";
-import MenuImpostazioni from "./components/MenuImpostazioni.jsx";
+import { useColoreCelle } from "../hooks/useColoreCelle.js";
+import MenuImpostazioni from "../components/MenuImpostazioni.jsx";
 
-function App() {
+function Home() {
     const gioco = useGameLogic();
     const { tema, cambiaTema } = useTheme();
 
@@ -30,6 +30,8 @@ function App() {
                 </button>
 
                 <button className="bottone-tema" onClick={() => setMenuAperto(true)}> ⚙️ Colori </button>
+
+                <Link to="/statistiche" className="bottone-tema"> 📊 Statistiche </Link>
             </div>
 
             {!partitaIniziata ? (
@@ -79,4 +81,4 @@ function App() {
     );
 }
 
-export default App;
+export default Home;
