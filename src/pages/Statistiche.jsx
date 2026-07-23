@@ -7,8 +7,6 @@ function Statistiche() {
 
     const cePartite = gioco.storico.length > 0;
 
-    // Aggiungo un numero progressivo univoco a ogni partita (1, 2, 3...),
-    // così l'asse X ha sempre valori unici anche se le date si ripetono.
     const datiGrafico = gioco.storico.map((partita, indice) => ({
         numeroPartita: indice + 1,
         livello: partita.livello - 1,
@@ -62,12 +60,10 @@ function Statistiche() {
                         </ResponsiveContainer>
                     </div>
                 ) : (
-                    <p>Gioca almeno una partita per vedere il grafico dei tuoi progressi.</p>
+                    <p>Gioca almeno una partita per vedere il grafico dei tuoi progressi</p>
                 )}
 
-                <Link to="/" className="bottone bottone-primario">
-                    Torna al gioco
-                </Link>
+                <Link to="/" className="bottone bottone-primario"> Torna al gioco </Link>
             </div>
         </div>
     );
