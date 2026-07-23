@@ -214,6 +214,7 @@ body {
     color: var(--testo);
     border: 1px solid var(--bordo);
     font-size: 0.9rem;
+    text-decoration: none;
 }
 
 
