@@ -114,7 +114,3 @@ src/
 
 - [Documentazione ufficiale React](https://react.dev/)
 - [Documentazione Recharts](https://recharts.org/)
-
-## Licenza
-
-MIT.
